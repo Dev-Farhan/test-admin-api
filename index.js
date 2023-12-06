@@ -1,7 +1,11 @@
 import express from "express";
 import cors from "cors";
+import dotenv from "dotenv";
 
+dotenv.config();
 const app = express();
+
+const PORT = process.env.PORT || 8800;
 
 app.use(cors());
 app.use(express.json());
@@ -302,6 +306,6 @@ app.delete("/api/products/:id", (req, res) => {
   res.json("Product deleted!");
 });
 
-app.listen(8800, () => {
+app.listen(PORT, () => {
   console.log("Connected to backend.");
 });
